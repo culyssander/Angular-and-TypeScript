@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "hello-world": {
+    "primeiro-projecto": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/hello-world",
+            "outputPath": "dist/primeiro-projecto",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -61,18 +61,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "hello-world:build"
+            "browserTarget": "primeiro-projecto:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "hello-world:build:production"
+              "browserTarget": "primeiro-projecto:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "hello-world:build"
+            "browserTarget": "primeiro-projecto:build"
           }
         },
         "test": {
@@ -109,16 +109,16 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "hello-world:serve"
+            "devServerTarget": "primeiro-projecto:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "hello-world:serve:production"
+              "devServerTarget": "primeiro-projecto:serve:production"
             }
           }
         }
       }
     }
   },
-  "defaultProject": "hello-world"
+  "defaultProject": "primeiro-projecto"
 }
