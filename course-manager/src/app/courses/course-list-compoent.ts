@@ -1,6 +1,9 @@
 
 import { Component, OnInit } from "@angular/core";
+import { from } from "rxjs";
 import { Course } from "./course";
+import { CourseService } from "./course.service";
+import { FormsModule } from '@angular/forms';
 
 
 @Component({
@@ -9,31 +12,51 @@ import { Course } from "./course";
     styleUrls: ['./course-list-compoent.css']
 })
 export class CourseListComponent implements OnInit {
+
+    filteredCourses: Course[] = [];
     
-    courses: Course[] = [];
+    _courses: Course[] = [];
+
+    _filterBy: string;
+
+    constructor(private courseService: CourseService) { }
 
     ngOnInit(): void {
-        this.courses = [
-            {
-                id: 1,
-                name:'Angular Forms',
-                imageUrl: '/assets/images/forms.png',
-                price: 99.0,
-                code: 'XPS-8796',
-                duration: 120,
-                rating: 2.6,
-                releaseDate: 'Janeiro, 29, 2021'
-            },
-            {
-                id: 2,
-                name:'Angular HTTP',
-                imageUrl: '/assets/images/http.png',
-                price: 45.0,
-                code: 'LKL-8796',
-                duration: 800,
-                rating: 3,
-                releaseDate: 'Janeiro, 29, 2021'
-            }
-        ];
+        this._courses = this.courseService.retrieveAll();
+        this.filteredCourses = this._courses;
+        // this.courses = [
+        //     {
+        //         id: 1,
+        //         name:'Angular Forms',
+        //         imageUrl: '/assets/images/forms.png',
+        //         price: 99.0,
+        //         code: 'XPS-8796',
+        //         duration: 120,
+        //         rating: 2.6,
+        //         releaseDate: 'Janeiro, 29, 2021',
+        //         description: ''
+        //     },
+        //     {
+        //         id: 2,
+        //         name:'Angular HTTP',
+        //         imageUrl: '/assets/images/http.png',
+        //         price: 45.0,
+        //         code: 'LKL-8796',
+        //         duration: 800,
+        //         rating: 3,
+        //         releaseDate: 'Janeiro, 29, 2021', 
+        //         description: ''
+        //     }
+        // ];
+    }
+
+    set filter(value: string) {
+        this._filterBy = value;
+
+        this.filteredCourses = this._courses.filter((course: Course) => course.name.toLocaleLowerCase().indexOf(this._filterBy.toLocaleLowerCase()) > -1);
+    }
+
+    get filter() {
+        return this._filterBy;
     }
 }
