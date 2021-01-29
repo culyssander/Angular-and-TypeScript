@@ -7,7 +7,7 @@ import { FormsModule } from '@angular/forms';
 
 
 @Component({
-    selector: 'app-courses-list',
+    // selector: 'app-courses-list',
     templateUrl: './course-list-compoent.html',
     styleUrls: ['./course-list-compoent.css']
 })
