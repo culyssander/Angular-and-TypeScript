@@ -5,7 +5,8 @@ import { Course } from "./course";
 
 @Component({
     selector: 'app-courses-list',
-    templateUrl: './course-list-compoent.html'
+    templateUrl: './course-list-compoent.html',
+    styleUrls: ['./course-list-compoent.css']
 })
 export class CourseListComponent implements OnInit {
     
@@ -16,21 +17,21 @@ export class CourseListComponent implements OnInit {
             {
                 id: 1,
                 name:'Angular Forms',
-                imageUrl: '',
+                imageUrl: '/assets/images/forms.png',
                 price: 99.0,
                 code: 'XPS-8796',
                 duration: 120,
-                rating: 4.0,
+                rating: 2.6,
                 releaseDate: 'Janeiro, 29, 2021'
             },
             {
                 id: 2,
                 name:'Angular HTTP',
-                imageUrl: '',
+                imageUrl: '/assets/images/http.png',
                 price: 45.0,
                 code: 'LKL-8796',
                 duration: 800,
-                rating: 5,
+                rating: 3,
                 releaseDate: 'Janeiro, 29, 2021'
             }
         ];
