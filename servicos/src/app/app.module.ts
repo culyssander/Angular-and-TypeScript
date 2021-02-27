@@ -13,7 +13,7 @@ import { CursoService } from './curso/curso.service';
   imports: [
     BrowserModule
   ],
-  providers: [CursoService],
+  providers: [CursoService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
